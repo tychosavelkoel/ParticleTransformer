@@ -33,6 +33,8 @@ private :
   std::map<std::string,std::vector<double>  > doubleMaps_;
   std::map<std::string,std::vector<std::vector<double>>> doubleVectorMaps_;
   std::map<std::string,std::vector<std::vector<int>>> intVectorMaps_;
+  std::map<std::string,double> doubleSingle_;
+
 
 public :
   treeWriter(const char *treeName = "treeOut");
@@ -60,6 +62,9 @@ public :
   void addIntVectorCollection(std::string name, const std::vector<std::vector<int>> v);
   void bookBranchDoubleVectorVec(std::string name);
   void bookBranchIntVectorVec(std::string name);
+
+  void addSingle(std::string name, double d);
+  void bookBranchSingle(std::string name);
 
 };
 
@@ -302,5 +307,17 @@ void treeWriter::bookBranchIntVectorVec(std::string name)
     treeOut_->Branch(name.c_str(), &intVectorMaps_[name]);
 }
 
+void treeWriter::addSingle(std::string name, double  d)
+{
+  doubleSingle_[name] = d;
+  bookBranchSingle(name);
+}
+
+
+void treeWriter::bookBranchSingle(std::string name)
+{
+  if(!treeOut_->GetBranch(name.c_str()))
+    treeOut_->Branch(name.c_str(),&doubleSingle_[name]);
+}
 
 #endif
