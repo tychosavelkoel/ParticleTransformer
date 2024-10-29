@@ -1,0 +1,460 @@
+[2024-10-15 12:14:00,978] INFO: Using 1 files for training, range: (0, 0.8889)
+[2024-10-15 12:14:00,978] INFO: Using 1 files for validation, range: (0.8889, 1)
+[2024-10-15 12:14:00,991] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:00,991] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:00,991] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:00,992] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:00,992] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:00,992] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:00,992] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:00,993] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:00,993] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:00,993] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:00,993] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:01,006] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:01,006] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:01,006] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:01,007] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:01,007] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:01,007] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:01,007] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:01,008] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:01,008] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:01,008] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:01,008] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:01,021] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:01,021] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:01,021] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:01,022] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:01,022] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:01,022] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:01,022] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:01,023] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:01,023] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:01,023] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:01,024] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:01,036] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:01,036] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:01,036] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:01,036] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:01,036] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:01,037] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:01,037] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:01,037] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:01,038] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:01,038] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:01,038] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:01,245] INFO: Create Tensorboard summary writer with comment Quenched__
+[2024-10-15 12:14:01,279] INFO: cfg_block: {'embed_dim': 128, 'num_heads': 8, 'ffn_ratio': 4, 'dropout': 0.1, 'attn_dropout': 0.1, 'activation_dropout': 0.1, 'add_bias_kv': False, 'activation': 'gelu', 'scale_fc': True, 'scale_attn': True, 'scale_heads': True, 'scale_resids': True}
+[2024-10-15 12:14:01,514] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:06,972] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:08,035] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:08,878] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:09,834] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:10,690] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:11,651] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:12,508] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:13,476] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:14,333] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:15,301] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:16,164] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:17,135] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:18,000] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:18,971] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:19,826] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:20,778] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:21,638] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:22,607] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:23,463] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:24,430] INFO: Restarted DataIter val_worker0, load_range=(0.8889, 1.0), file_list:
+{
+  "_": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Train_klein.root"
+  ]
+}
+[2024-10-15 12:14:25,247] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:25,247] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:25,247] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:25,248] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:25,248] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:25,248] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:25,249] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:25,249] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:25,250] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:25,250] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:25,250] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:25,264] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:25,264] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:25,265] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:25,265] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:25,266] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:25,266] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:25,266] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:25,267] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:25,267] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:25,267] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:25,268] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:25,269] INFO: Running on test file group  with 1 files:
+.../data/alice/tqwsavelkoel/soft/JetToyHI/Data_Test_klein.root
+[2024-10-15 12:14:25,281] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:25,281] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:25,281] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:25,282] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:25,282] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:25,282] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:25,283] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:25,283] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:25,284] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:25,284] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:25,285] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:25,297] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-10-15 12:14:25,297] INFO: [0;37mselection: None[0m
+[2024-10-15 12:14:25,297] INFO: [0;37mtest_time_selection: None[0m
+[2024-10-15 12:14:25,298] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-10-15 12:14:25,298] INFO: [0;37minput_names: ('pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-10-15 12:14:25,298] INFO: [0;37minput_dicts:
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-10-15 12:14:25,298] INFO: [0;37minput_shapes:
+ - ('pf_features', (-1, 7, 64))
+ - ('pf_vectors', (-1, 4, 64))
+ - ('pf_mask', (-1, 1, 64))[0m
+[2024-10-15 12:14:25,299] INFO: [0;37mpreprocess_params:
+ - ('part_pt_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deta', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 64, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-10-15 12:14:25,299] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-10-15 12:14:25,300] INFO: [0;37mobserver_names: ('nparticles', 'width', 'jet_mass', 'jet_phi', 'jet_pt', 'jet_eta')[0m
+[2024-10-15 12:14:25,300] INFO: [0;37mmonitor_variables: ()[0m
+[2024-10-15 12:14:25,365] INFO: Restarted DataIter test__worker0, load_range=(0, 1), file_list:
+{
+  "": [
+    "/data/alice/tqwsavelkoel/soft/JetToyHI/Data_Test_klein.root"
+  ]
+}
+[2024-10-15 12:14:26,427] INFO: [1mWritten output to training/Test/20241015//121400_ranger_lr0.005_batch512/predict_output/train_results.root[0m
+[2024-10-15 12:14:26,440] INFO: [1mWritten output to training/Test/20241015//121400_ranger_lr0.005_batch512/predict_output/test_results.root[0m
