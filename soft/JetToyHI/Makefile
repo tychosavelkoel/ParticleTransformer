@@ -11,25 +11,21 @@ FFLAGS = -Wall -O2
 CXXFLAGS += -std=c++11
 LDFLAGS += -std=c++11
 
-FJCONFIG = /data/alice/tqwsavelkoel/soft/fastjet-3.3.0/../fastjet-install/bin/fastjet-config
+FJCONFIG = /data/alice/tqwsavelkoel/soft/fastjet-3.4.2/../fastjet342-install/bin/fastjet-config
+FJLOC = /data/alice/tqwsavelkoel/soft/fastjet-3.4.2/../fastjet342-install
 INCLUDE += `$(FJCONFIG) --cxxflags`
-LIBRARIES  += `$(FJCONFIG) --libs --plugins` -lfastjetcontribfragile
-
-PYTHIA8LOCATION = /Users/mverweij/soft/pythia8240-install/
+LIBRARIES  += -L$(FJLOC)/lib -lRecursiveTools `$(FJCONFIG) --libs --plugins` -lfastjetcontribfragile
+PYTHIA8LOCATION = /data/alice/tqwsavelkoel/soft/pythia8310
 INCLUDE += -I$(PYTHIA8LOCATION)/include
-LIBRARIES  += -L$(PYTHIA8LOCATION)/lib -lpythia8
+LIBRARIES  += -L$(PYTHIA8LOCATION)/lib -Wl,-rpath,$(PYTHIA8LOCATION)/lib -lpythia8 -ldl
 LIBRARIES += -lgsl -lgslcblas -lm
-
 INCLUDE += -I/usr/include
-
-
 INCLUDE += `root-config --cflags`
 LIBRARIES  += `root-config --glibs`
 INCLUDE += $(LCLINCLUDE)
-
-COMMONSRC = 
-F77SRC = 
-COMMONOBJ = 
+COMMONSRC =
+F77SRC =
+COMMONOBJ =
 
 PROGSRC = Data.cc runConversionQPYTHIA.cc runCreatePythiaEvents.cc runCreatePythiaEventsPartonLevel.cc runCreateThermalEvents.cc runCSVariations.cc runFromFile.cc runJetPerformance.cc runJetProfile.cc runJewelSub.cc runSDGenVarious.cc runSDGenVariousJewelSub.cc runSharedLayerSubtraction.cc runSimpleJetAnalysis.cc runSoftDrop.cc runtest.cc
 PROGOBJ = Data.o runConversionQPYTHIA.o runCreatePythiaEvents.o runCreatePythiaEventsPartonLevel.o runCreateThermalEvents.o runCSVariations.o runFromFile.o runJetPerformance.o runJetProfile.o runJewelSub.o runSDGenVarious.o runSDGenVariousJewelSub.o runSharedLayerSubtraction.o runSimpleJetAnalysis.o runSoftDrop.o runtest.o
