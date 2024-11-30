@@ -7,6 +7,18 @@ import json
 import glob
 import os
 import shutil
+import matplotlib.pyplot as plt
+
+
+from optuna.visualization.matplotlib import plot_contour
+from optuna.visualization.matplotlib import plot_edf
+from optuna.visualization.matplotlib import plot_intermediate_values
+from optuna.visualization.matplotlib import plot_optimization_history
+from optuna.visualization.matplotlib import plot_parallel_coordinate
+from optuna.visualization.matplotlib import plot_param_importances
+from optuna.visualization.matplotlib import plot_rank
+from optuna.visualization.matplotlib import plot_slice
+from optuna.visualization.matplotlib import plot_timeline
 
 #moving the data into a backup folder before the code below is run, using glob or os, maybe walk, scan directiory
 
@@ -31,6 +43,31 @@ def movefiles_backup():
         folder_path =os.path.join(backup_dir,backup_name)
         shutil.move(folder,folder_path)
 
+def save_study_plots(study, study_folder):
+    plots_dir = os.path.join(study_folder, "plots")
+    os.makedirs(plots_dir, exist_ok=True)
+
+    plot_optimization_history(study).figure.savefig(os.path.join(plots_dir, "optimization_history.png"),bbox_inches='tight')
+    plot_parallel_coordinate(study).figure.savefig(os.path.join(plots_dir, "parallel_coordinate.png"),bbox_inches='tight')
+    #plot_slice(study).figure.savefig(os.path.join(plots_dir, "slice.png"))
+
+
+    params = ["lr", "weight_decay", "nu", "delta", "epsilon"]
+    for para in params:
+        
+        slice_plot =optuna.visualization.matplotlib.plot_slice(study, params=[f"{para}"])
+        slice_plot.figure.savefig(os.path.join(plots_dir, f"slice_{para}.png"),bbox_inches='tight')
+
+
+    optuna.visualization.matplotlib.plot_param_importances(study).figure.savefig(os.path.join(plots_dir, "param_importances.png"),bbox_inches='tight')
+
+    #optuna.visualization.matplotlib.plot_param_importances(study).figure.savefig(os.path.join(plots_dir, "param_importances.png"),bbox_inches='tight')
+
+    #slice_plot =optuna.visualization.matplotlib.plot_slice(study)
+    #slice_plot[0].figure.savefig(os.path.join(plots_dir, "slice.png"),bbox_inches='tight')
+
+    
+
 
 def objective(trial):
     #the hyperparmeters that need tuning
@@ -42,11 +79,11 @@ def objective(trial):
 
     task = ["bash",'ParT-SVDD.sh',str(lr),str(weight_decay),str(nu),str(delta),str(epsilon)]
 
-    #moving the data into a backup folder before the code below is run, using glob or os, maybe walk, scan directiory
     subprocess.run(task, capture_output=True, text=True)
 
     recent_run_day = max(glob.glob(os.path.join(base_dir,"*/")),key=os.path.getmtime)
     recent_run_time = max(glob.glob(os.path.join(recent_run_day,"*/")),key=os.path.getmtime)
+
 
     results_json_path = os.path.join(recent_run_time,"predict_output/results.json")
 
@@ -60,9 +97,15 @@ def objective(trial):
 
 movefiles_backup()
 
-#study = optuna.create_study(direction="minimize")
-#study.optimize(objective, n_trials=10)
-#print(study.best_params)
+study = optuna.create_study(direction="minimize")
+study.optimize(objective, n_trials=2)
+
+recent_study_day = max(glob.glob(os.path.join(base_dir, "*/")), key=os.path.getmtime)
+recent_study_folder = os.path.join(recent_study_day)
+
+save_study_plots(study, recent_study_folder)
+
+print(study.best_params)
 
 
  
@@ -81,4 +124,5 @@ def simplerun():
     #print("STDOUT:", result.stdout)
     #print("STDERR:", result.stderr)
 
-simplerun()
+#simplerun()
+#plot_optimization_history(study)
