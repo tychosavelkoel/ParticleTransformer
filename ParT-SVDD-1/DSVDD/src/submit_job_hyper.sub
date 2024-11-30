@@ -1,0 +1,30 @@
+
+log = logfiles/job_$(Cluster)_$(Process).log
+error = logfiles/job_$(Cluster)_$(Process).err
+output = logfiles/job_$(Cluster)_$(Process).out
+
+executable = job_hypertraining.sh
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+#S+UseOS = "el7"
+
+#transfer_input_files =
+
+#requirements = regexp("V100", TARGET.GPUs_wn-lot-009)
+
+#+GPUJobLength = "medium" 
++JobCategory = "medium"
++SingularityImage = "/cvmfs/unpacked.nikhef.nl/ndpf/rocm-tensorflow/"
+
+
+request_gpus = 1
+request_cpus = 1
+request_memory = 32GB
+request_disk = 4GB
+
+queue 1
+
+#conder
+#qsub -l 'walltime=96:00:00' -q gpu-nv -V -o logfiles -j oe job_hypertraining.sh
